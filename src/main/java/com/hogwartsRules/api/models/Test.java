@@ -1,5 +1,7 @@
 package com.hogwartsRules.api.models;
 
+import java.util.ArrayList;
+
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
@@ -9,24 +11,18 @@ public class Test {
 	private String _id;
 	private String numPregunta;
 	private String pregunta;
-	private String numRespuesta;
-	private String respuesta;
-	private String imagen;
-	private String puntos;
+	private ArrayList<Object> respuestas;
 
 	public Test(){
 
 	}
 
-	public Test(String _id, String numPregunta, String pregunta, String numRespuesta, String respuesta, String imagen, String puntos){
+	public Test(String _id, String numPregunta, String pregunta, String numRespuesta, ArrayList<Object> respuestas){
 		super();
 		this._id = _id;
 		this.numPregunta = numPregunta;
 		this.pregunta = pregunta;
-		this.numRespuesta = numRespuesta;
-		this.respuesta = respuesta;
-		this.imagen = imagen;
-		this.puntos = puntos;
+		this.respuestas = respuestas;
 	}
 
 	public String get_id() {
@@ -53,37 +49,15 @@ public class Test {
 		this.pregunta = pregunta;
 	}
 
-	public String getNumRespuesta() {
-		return numRespuesta;
+	public ArrayList<Object> getRespuestas() {
+		return respuestas;
 	}
 
-	public void setNumRespuesta(String numRespuesta) {
-		this.numRespuesta = numRespuesta;
+	public void setRespuestas(ArrayList<Object> respuestas) {
+		this.respuestas = respuestas;
 	}
 
-	public String getRespuesta() {
-		return respuesta;
-	}
 
-	public void setRespuesta(String respuesta) {
-		this.respuesta = respuesta;
-	}
-
-	public String getImagen() {
-		return imagen;
-	}
-
-	public void setImagen(String imagen) {
-		this.imagen = imagen;
-	}
-
-	public String getPuntos() {
-		return puntos;
-	}
-
-	public void setPuntos(String puntos) {
-		this.puntos = puntos;
-	}
 
 
 
