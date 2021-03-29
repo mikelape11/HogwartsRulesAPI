@@ -27,10 +27,14 @@ public class TestController {
 		public List<Test>getTest(){
 		return (List<Test>) testRepository.findAll();
 	}
-	
+
 	@RequestMapping(path="/añadirTest", method=RequestMethod.POST)
 		public void añadirTest(@RequestBody(required=false) Test test){
 		testRepository.save(test);
 	}
 
+	@RequestMapping(path="/getPreguntasRespuestas", method=RequestMethod.GET)
+	public List<Test>getPreguntasResuestas(){
+	return testRepository.findByOrderByNumPreguntaAsc();
+}
 }
