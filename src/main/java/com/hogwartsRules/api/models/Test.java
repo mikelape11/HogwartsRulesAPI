@@ -9,7 +9,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 public class Test {
 	@Id
 	private String _id;
-	private String numPregunta;
+	private int numPregunta;
 	private String pregunta;
 	private ArrayList<Object> respuestas;
 
@@ -17,7 +17,7 @@ public class Test {
 
 	}
 
-	public Test(String _id, String numPregunta, String pregunta, String numRespuesta, ArrayList<Object> respuestas){
+	public Test(String _id, int numPregunta, String pregunta, String numRespuesta, ArrayList<Object> respuestas){
 		super();
 		this._id = _id;
 		this.numPregunta = numPregunta;
@@ -33,11 +33,11 @@ public class Test {
 		this._id = _id;
 	}
 
-	public String getNumPregunta() {
+	public int getNumPregunta() {
 		return numPregunta;
 	}
 
-	public void setNumPregunta(String numPregunta) {
+	public void setNumPregunta(int numPregunta) {
 		this.numPregunta = numPregunta;
 	}
 

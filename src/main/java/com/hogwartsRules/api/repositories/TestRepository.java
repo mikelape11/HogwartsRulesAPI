@@ -10,4 +10,8 @@ public interface TestRepository  extends MongoRepository<Test, String>{
 
 	List<Test> findByOrderByNumPreguntaAsc();
 
+	Test findTop1ByOrderByNumPreguntaDesc();
+
+	Test findByNumPregunta(int numero);
+
 }
