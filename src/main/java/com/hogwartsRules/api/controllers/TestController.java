@@ -8,7 +8,6 @@ import org.springframework.data.mongodb.core.query.Criteria;
 import org.springframework.data.mongodb.core.query.Query;
 import org.springframework.data.mongodb.core.query.Update;
 import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -23,6 +22,8 @@ public class TestController {
 
 	@Autowired
 	private TestRepository testRepository;
+
+
 	@Autowired
 	protected MongoTemplate mongoTemplate;
 
@@ -37,7 +38,7 @@ public class TestController {
 		test.setNumPregunta(numeroPre.getNumPregunta()+1);
 		testRepository.save(test);
 	}
-	
+
 	@RequestMapping(path="/editarTest", method=RequestMethod.POST)
 		public void editarTest(@RequestBody(required=false) Test test){
 		Query query = new Query(Criteria.where("_id").is(test.get_id()));
@@ -49,13 +50,13 @@ public class TestController {
 		public List<Test>getPreguntasResuestas(){
 		return testRepository.findByOrderByNumPreguntaAsc();
 	}
-	
+
 	@RequestMapping(path="/getPreguntas", method=RequestMethod.GET)
 	public Test getPreguntaByNum(@RequestBody(required=false) int numero) {
-		
+
 		Test test = testRepository.findByNumPregunta(numero);
 		return test;
 	}
-	
-	
+
+
 }

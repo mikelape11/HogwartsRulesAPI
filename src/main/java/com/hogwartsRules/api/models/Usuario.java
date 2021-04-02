@@ -10,16 +10,18 @@ public class Usuario {
 	private String usuario;
 	private String password;
 	private String email;
+	private String casa;
 
 	public Usuario(){
 	}
 
-	public Usuario(String _id, String usuario, String password, String email) {
+	public Usuario(String _id, String usuario, String password, String email, String casa) {
 		super();
 		this._id = _id;
 		this.usuario = usuario;
 		this.password = password;
 		this.email = email;
+		this.casa = casa;
 	}
 
 	public String get_id() {
@@ -54,5 +56,12 @@ public class Usuario {
 		this.email = email;
 	}
 
+	public String getCasa() {
+		return casa;
+	}
+
+	public void setCasa(String casa) {
+		this.casa = casa;
+	}
 
 }

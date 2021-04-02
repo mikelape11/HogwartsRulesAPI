@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.data.mongodb.repository.MongoRepository;
 
+import com.hogwartsRules.api.models.EleccionCasa;
 import com.hogwartsRules.api.models.Test;
 
 public interface TestRepository  extends MongoRepository<Test, String>{
@@ -13,5 +14,6 @@ public interface TestRepository  extends MongoRepository<Test, String>{
 	Test findTop1ByOrderByNumPreguntaDesc();
 
 	Test findByNumPregunta(int numero);
+
 
 }

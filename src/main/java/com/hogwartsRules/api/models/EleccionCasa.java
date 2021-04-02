@@ -5,19 +5,26 @@ import org.springframework.data.mongodb.core.mapping.Document;
 
 @Document(collection = "EleccionCasa")
 public class EleccionCasa {
+
 	@Id
 	private String _id;
 	private String id_usuario;
-	private int puntos;
+	private int puntosGry;
+	private int puntosSly;
+	private int puntosHuff;
+	private int puntosRav;
 
 	public EleccionCasa(){
 	}
 
-	public EleccionCasa(String _id, String id_usuario, int puntos) {
+	public EleccionCasa(String _id, String id_usuario, int puntosGry, int puntosSly, int puntosHuff, int puntosRav) {
 		super();
 		this._id = _id;
 		this.id_usuario = id_usuario;
-		this.puntos = puntos;
+		this.puntosGry = puntosGry;
+		this.puntosSly = puntosSly;
+		this.puntosHuff = puntosHuff;
+		this.puntosRav = puntosRav;
 	}
 
 	public String get_id() {
@@ -36,16 +43,37 @@ public class EleccionCasa {
 		this.id_usuario = id_usuario;
 	}
 
-	public int getPuntos() {
-		return puntos;
+	public int getPuntosGry() {
+		return puntosGry;
 	}
 
-	public void setPuntos(int puntos) {
-		this.puntos = puntos;
+	public void setPuntosGry(int puntosGry) {
+		this.puntosGry = puntosGry;
 	}
 
+	public int getPuntosSly() {
+		return puntosSly;
+	}
 
+	public void setPuntosSly(int puntosSly) {
+		this.puntosSly = puntosSly;
+	}
 
+	public int getPuntosHuff() {
+		return puntosHuff;
+	}
+
+	public void setPuntosHuff(int puntosHuff) {
+		this.puntosHuff = puntosHuff;
+	}
+
+	public int getPuntosRav() {
+		return puntosRav;
+	}
+
+	public void setPuntosRav(int puntosRav) {
+		this.puntosRav = puntosRav;
+	}
 
 
 }
