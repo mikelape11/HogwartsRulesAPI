@@ -8,7 +8,7 @@ public class EleccionCasa {
 
 	@Id
 	private String _id;
-	private String id_usuario;
+	private String idUsuario;
 	private int puntosGry;
 	private int puntosSly;
 	private int puntosHuff;
@@ -17,10 +17,10 @@ public class EleccionCasa {
 	public EleccionCasa(){
 	}
 
-	public EleccionCasa(String _id, String id_usuario, int puntosGry, int puntosSly, int puntosHuff, int puntosRav) {
+	public EleccionCasa(String _id, String idUsuario, int puntosGry, int puntosSly, int puntosHuff, int puntosRav) {
 		super();
 		this._id = _id;
-		this.id_usuario = id_usuario;
+		this.idUsuario = idUsuario;
 		this.puntosGry = puntosGry;
 		this.puntosSly = puntosSly;
 		this.puntosHuff = puntosHuff;
@@ -35,12 +35,12 @@ public class EleccionCasa {
 		this._id = _id;
 	}
 
-	public String getId_usuario() {
-		return id_usuario;
+	public String getidUsuario() {
+		return idUsuario;
 	}
 
-	public void setId_usuario(String id_usuario) {
-		this.id_usuario = id_usuario;
+	public void setidUsuario(String idUsuario) {
+		this.idUsuario = idUsuario;
 	}
 
 	public int getPuntosGry() {

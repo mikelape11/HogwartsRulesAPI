@@ -7,4 +7,7 @@ import com.hogwartsRules.api.models.EleccionCasa;
 public interface EleccionCasaRepository extends MongoRepository<EleccionCasa, String> {
 
 
+	void deleteByidUsuario(String idUsuario);
+
+
 }

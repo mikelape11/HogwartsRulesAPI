@@ -6,5 +6,8 @@ import com.hogwartsRules.api.models.Usuario;
 
 public interface UsuarioRepository  extends MongoRepository<Usuario, String>{
 
+
+	void deleteByusuario(String usuario);
+
 	//Usuario findByUsuarioAndPassword(String usuario, String password);
 }
