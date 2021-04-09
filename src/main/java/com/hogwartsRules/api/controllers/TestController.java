@@ -1,6 +1,7 @@
 package com.hogwartsRules.api.controllers;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.mongodb.core.MongoTemplate;
@@ -56,6 +57,11 @@ public class TestController {
 
 		Test test = testRepository.findByNumPregunta(numero);
 		return test;
+	}
+	
+	@RequestMapping(path="/eliminarTest", method=RequestMethod.DELETE)
+	public void eliminarTest(@RequestBody(required=false) Test id) {
+		testRepository.deleteById(id.get_id());
 	}
 
 
