@@ -81,5 +81,9 @@ public class UsuarioController {
 	   }
 
 
+	 @RequestMapping(path="/eliminarUsuario", method=RequestMethod.DELETE)
+	 public void eliminarUsuario(@RequestBody Usuario usuario) {
+		 usuarioRepository.deleteById(usuario.get_id());
+	 }
 
 }
