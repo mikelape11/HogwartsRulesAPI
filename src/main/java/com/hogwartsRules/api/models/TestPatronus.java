@@ -19,7 +19,6 @@ public class TestPatronus {
 	}
 
 	public TestPatronus(String _id, int numPregunta, String pregunta, ArrayList<Object> respuestas) {
-		super();
 		this._id = _id;
 		this.numPregunta = numPregunta;
 		this.pregunta = pregunta;

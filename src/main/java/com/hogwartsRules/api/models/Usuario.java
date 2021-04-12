@@ -20,7 +20,6 @@ public class Usuario {
 
 	public Usuario(String _id, String usuario, String password, String email, String casaHogwarts, String casa,
 			String avatar, int rol) {
-		super();
 		this._id = _id;
 		this.usuario = usuario;
 		this.password = password;

@@ -18,7 +18,6 @@ public class Test {
 	}
 
 	public Test(String _id, int numPregunta, String pregunta, String numRespuesta, ArrayList<Object> respuestas){
-		super();
 		this._id = _id;
 		this.numPregunta = numPregunta;
 		this.pregunta = pregunta;

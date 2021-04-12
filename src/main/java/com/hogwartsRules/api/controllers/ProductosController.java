@@ -15,7 +15,7 @@ import com.hogwartsRules.api.repositories.ProductosRepository;
 @CrossOrigin(origins = "*")
 public class ProductosController {
 	@Autowired
-	private ProductosRepository ProductosRepository;
+	private ProductosRepository productosRepository;
 	
 	@Autowired
 	protected MongoTemplate mongoTemplate;
@@ -23,6 +23,7 @@ public class ProductosController {
 	
 	@RequestMapping(path="/addProduct", method=RequestMethod.POST)
 	public void addProduct(@RequestBody(required=false) Productos producto){
-		ProductosRepository.save(producto);
+		System.out.println(producto.getNombre());
+		productosRepository.save(producto);
 	}
 }
