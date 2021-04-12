@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.hogwartsRules.api.models.Opinion;
+import com.hogwartsRules.api.models.Test;
 import com.hogwartsRules.api.models.Usuario;
 import com.hogwartsRules.api.repositories.OpinionRepository;
 
@@ -33,4 +34,10 @@ public class OpinionController {
 		public void registrarOpinion(@RequestBody Opinion opinion){
 		 opinionRepository.save(opinion);
 		}
+
+
+	 @RequestMapping(path="/getOpinionesOrdenadas", method=RequestMethod.GET)
+		public List<Opinion>getPreguntasResuestas(){
+		return opinionRepository.findByOrderByPuntuacionDesc();
+	}
 }

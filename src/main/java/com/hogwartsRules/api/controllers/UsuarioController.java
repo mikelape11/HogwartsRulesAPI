@@ -80,6 +80,28 @@ public class UsuarioController {
 	    	 usuarioRepository.save(userTest1);
 	   }
 
+	 @PutMapping("/actualiziarVarita")//Funcion para que un usuario desde el movil actualice sus datos
+		public void actualiziarVarita(@RequestBody Usuario usuario) {
+ 	 	 System.out.println(usuario.getUsuario());
+	    	 Query query = new Query();
+	    	 query.addCriteria(Criteria.where("usuario").is(usuario.getUsuario()));
+	    	 Usuario userTest1 = mongoTemplate.findOne(query, Usuario.class);
+	    	 userTest1.setVarita(usuario.getVarita());
+	    	 usuarioRepository.save(userTest1);
+	   }
+
+
+	 @PutMapping("/actualiziarPatronus")//Funcion para que un usuario desde el movil actualice sus datos
+		public void actualiziarPatronus(@RequestBody Usuario usuario) {
+ 	 	 System.out.println(usuario.getUsuario());
+	    	 Query query = new Query();
+	    	 query.addCriteria(Criteria.where("usuario").is(usuario.getUsuario()));
+	    	 Usuario userTest1 = mongoTemplate.findOne(query, Usuario.class);
+	    	 userTest1.setPatronus(usuario.getPatronus());
+	    	 usuarioRepository.save(userTest1);
+	   }
+
+
 
 	 @RequestMapping(path="/eliminarUsuario", method=RequestMethod.DELETE)
 	 public void eliminarUsuario(@RequestBody Usuario usuario) {

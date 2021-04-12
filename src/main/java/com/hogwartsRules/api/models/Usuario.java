@@ -11,6 +11,8 @@ public class Usuario {
 	private String password;
 	private String email;
 	private String casaHogwarts;
+	private String varita;
+	private String patronus;
 	private String casa;
 	private String avatar;
 	private int rol;
@@ -18,13 +20,15 @@ public class Usuario {
 	public Usuario(){
 	}
 
-	public Usuario(String _id, String usuario, String password, String email, String casaHogwarts, String casa,
+	public Usuario(String _id, String usuario, String password, String email, String casaHogwarts, String varita, String patronus, String casa,
 			String avatar, int rol) {
 		this._id = _id;
 		this.usuario = usuario;
 		this.password = password;
 		this.email = email;
 		this.casaHogwarts = casaHogwarts;
+		this.varita = varita;
+		this.patronus = patronus;
 		this.casa = casa;
 		this.avatar = avatar;
 		this.rol = rol;
@@ -70,6 +74,22 @@ public class Usuario {
 		this.casaHogwarts = casaHogwarts;
 	}
 
+	public String getVarita() {
+		return varita;
+	}
+
+	public void setVarita(String varita) {
+		this.varita = varita;
+	}
+
+	public String getPatronus() {
+		return patronus;
+	}
+
+	public void setPatronus(String patronus) {
+		this.patronus = patronus;
+	}
+
 	public String getCasa() {
 		return casa;
 	}
@@ -93,7 +113,6 @@ public class Usuario {
 	public void setRol(int rol) {
 		this.rol = rol;
 	}
-
 
 
 }
