@@ -47,6 +47,21 @@ public class UsuarioController {
 
 		return false;
 	}
+	
+	@RequestMapping(path="/loginWeb", method=RequestMethod.POST)
+	public boolean loginWeb(@RequestBody(required=false) Usuario user){
+
+		List<Usuario> users = (List<Usuario>) usuarioRepository.findAll();
+
+		for(Usuario p:users){
+			if(p.getUsuario().equals(user.getUsuario()) && p.getPassword().equals(user.getPassword()) && p.getRol() == 1) {
+
+				return true;
+			}
+		}
+
+		return false;
+	}
 
 	@PostMapping("/register")
 	public void register(@RequestBody Usuario usuario){
