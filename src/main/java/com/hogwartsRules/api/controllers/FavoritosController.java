@@ -10,28 +10,30 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.hogwartsRules.api.models.Favoritos;
 import com.hogwartsRules.api.models.Productos;
 import com.hogwartsRules.api.models.Usuario;
+import com.hogwartsRules.api.repositories.FavoritosRepository;
 import com.hogwartsRules.api.repositories.ProductosRepository;
 
 @RestController
 @CrossOrigin(origins = "*")
-public class ProductosController {
+public class FavoritosController {
+
+
 	@Autowired
-	private ProductosRepository productosRepository;
+	private FavoritosRepository favoritosRepository;
 
 	@Autowired
 	protected MongoTemplate mongoTemplate;
 
+	@RequestMapping(path="/todosFavoritos", method=RequestMethod.GET)
+    public List<Favoritos> getFavoritos(){
+        return (List<Favoritos>) favoritosRepository.findAll();
+    }
 
-	 @RequestMapping(path="/todosProductos", method=RequestMethod.GET)
-	    public List<Productos> getUsuarios(){
-	        return (List<Productos>) productosRepository.findAll();
-	    }
-
-	@RequestMapping(path="/addProduct", method=RequestMethod.POST)
-	public void addProduct(@RequestBody(required=false) Productos producto){
-		System.out.println(producto.getNombre());
-		productosRepository.save(producto);
+	@RequestMapping(path="/addFavorito", method=RequestMethod.POST)
+	public void addProduct(@RequestBody(required=false) Favoritos favorito){
+		favoritosRepository.save(favorito);
 	}
 }
