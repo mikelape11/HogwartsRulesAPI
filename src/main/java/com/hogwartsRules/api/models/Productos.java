@@ -14,20 +14,22 @@ public class Productos {
 	private int precio;
 	private String casa;
 	private String tipo;
-	private float peso;
+	private String color;
+	private String descripcion;
 	private ArrayList<Object> foto;
 
 	public Productos(){
 	}
 
-	public Productos(String _id, String nombre, int cantidad, int precio, String casa,String tipo,float peso,ArrayList<Object> foto) {
+	public Productos(String _id, String nombre, int cantidad, int precio, String casa,String tipo,String color, String descripcion,ArrayList<Object> foto) {
 		this._id = _id;
 		this.nombre= nombre;
 		this.cantidad = cantidad;
 		this.precio = precio;
 		this.casa = casa;
 		this.tipo = tipo;
-		this.peso = peso;
+		this.color = color;
+		this.descripcion = descripcion;
 		this.foto = foto;
 	}
 
@@ -79,12 +81,20 @@ public class Productos {
 		this.tipo = tipo;
 	}
 
-	public float getPeso() {
-		return peso;
+	public String getColor() {
+		return color;
 	}
 
-	public void setPeso(float peso) {
-		this.peso = peso;
+	public void setColor(String color) {
+		this.color = color;
+	}
+
+	public String getDescripcion() {
+		return descripcion;
+	}
+
+	public void setDescripcion(String descripcion) {
+		this.descripcion = descripcion;
 	}
 
 	public ArrayList<Object> getFoto() {
@@ -94,6 +104,8 @@ public class Productos {
 	public void setFoto(ArrayList<Object> foto) {
 		this.foto = foto;
 	}
+
+
 
 
 
