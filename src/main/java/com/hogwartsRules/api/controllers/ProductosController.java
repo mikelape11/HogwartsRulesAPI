@@ -4,6 +4,9 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.mongodb.core.MongoTemplate;
+import org.springframework.data.mongodb.core.query.Criteria;
+import org.springframework.data.mongodb.core.query.Query;
+import org.springframework.data.mongodb.core.query.Update;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -45,4 +48,15 @@ public class ProductosController {
 		System.out.println(producto.getNombre());
 		productosRepository.save(producto);
 	}
+	
+	 @RequestMapping(path="/editProducts", method=RequestMethod.POST)
+	 public void editarTest(@RequestBody(required=false) Productos producto){
+		 Query query = new Query(Criteria.where("_id").is(producto.get_id()));
+		 Update update2 = new Update().set("nombre",producto.getNombre()).set("cantidad", producto.getCantidad()).set("precio", producto.getPrecio()).set("casa",producto.getPrecio()).set("tipo", producto.getTipo()).set("foto", producto.getFoto());
+		 mongoTemplate.updateMulti(query, update2,Productos.class);
+	 }
+	 @RequestMapping(path="/eliminarProducts", method=RequestMethod.DELETE)
+	 public void eliminarTest(@RequestBody(required=false) Productos id) {
+		 productosRepository.deleteById(id.get_id());
+	 }
 }
