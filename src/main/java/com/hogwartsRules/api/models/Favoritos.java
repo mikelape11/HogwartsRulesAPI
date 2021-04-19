@@ -11,16 +11,16 @@ public class Favoritos {
 	@Id
 	private String _id;
 	private String idUsuario;
-	private ArrayList<Productos> productos;
+	private String idProducto;
 
 	public Favoritos(){
 	}
 
-	public Favoritos(String _id, String idUsuario, ArrayList<Productos> productos) {
+	public Favoritos(String _id, String idUsuario, String idProducto) {
 		super();
 		this._id = _id;
 		this.idUsuario = idUsuario;
-		this.productos = productos;
+		this.idProducto = idProducto;
 	}
 
 	public String get_id() {
@@ -39,12 +39,12 @@ public class Favoritos {
 		this.idUsuario = idUsuario;
 	}
 
-	public ArrayList<Productos> getProductos() {
-		return productos;
+	public String getIdProducto() {
+		return idProducto;
 	}
 
-	public void setProductos(ArrayList<Productos> productos) {
-		this.productos = productos;
+	public void setIdProducto(String idProducto) {
+		this.idProducto = idProducto;
 	}
 
 

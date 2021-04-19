@@ -47,7 +47,7 @@ public class UsuarioController {
 
 		return false;
 	}
-	
+
 	@RequestMapping(path="/loginWeb", method=RequestMethod.POST)
 	public boolean loginWeb(@RequestBody(required=false) Usuario user){
 
@@ -80,7 +80,7 @@ public class UsuarioController {
 
 
 	 @DeleteMapping("/eliminarPorNombre/{usuario}")//Funcion que borrará la ubicación del usuario al salir
-	  public void deleteUbicacion(@PathVariable String usuario) {
+	  public void eliminarPorNombre(@PathVariable String usuario) {
 		 usuarioRepository.deleteByusuario(usuario);
 	  }
 

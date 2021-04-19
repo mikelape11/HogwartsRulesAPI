@@ -4,7 +4,12 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.mongodb.core.MongoTemplate;
+import org.springframework.data.mongodb.core.query.Criteria;
+import org.springframework.data.mongodb.core.query.Query;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -25,6 +30,9 @@ public class FavoritosController {
 	private FavoritosRepository favoritosRepository;
 
 	@Autowired
+	private ProductosRepository productosRepository;
+
+	@Autowired
 	protected MongoTemplate mongoTemplate;
 
 	@RequestMapping(path="/todosFavoritos", method=RequestMethod.GET)
@@ -36,4 +44,28 @@ public class FavoritosController {
 	public void addProduct(@RequestBody(required=false) Favoritos favorito){
 		favoritosRepository.save(favorito);
 	}
+
+	/*
+	 @PutMapping("/eliminarProductoFav")//Funcion para que un usuario desde el movil actualice sus datos
+		public void eliminarProductoFav(@RequestBody Favoritos fav) {
+	    	 Query query = new Query();
+	    	 query.addCriteria(Criteria.where("_id").is(fav.get_id()));
+	    	 Favoritos favorito1 = mongoTemplate.findOne(query, Favoritos.class);
+	    	 System.out.println(favorito1.getProductos());
+	    	 //usuarioRepository.save(usuario);
+	   }
+*/
+
+	 @RequestMapping(path="/todosFavoritos/{usuario}", method=RequestMethod.GET)
+	    public List<Favoritos> getFavoritos(@PathVariable String usuario){
+	        return favoritosRepository.findByIdUsuario(usuario);
+	 }
+
+	 @RequestMapping(path="/productosFavoritos/{usuario}", method=RequestMethod.GET)
+	    public List<Productos> getproductosFavoritos(@PathVariable String usuario){
+	        return productosRepository.findByIdUsuario(usuario);
+	 }
+
+
+
 }
