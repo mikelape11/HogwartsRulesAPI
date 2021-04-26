@@ -2,6 +2,8 @@ package com.hogwartsRules.api.repositories;
 
 import java.util.List;
 
+import org.springframework.data.mongodb.core.query.Query;
+import org.springframework.data.mongodb.core.query.Update;
 import org.springframework.data.mongodb.repository.MongoRepository;
 
 import com.hogwartsRules.api.models.Favoritos;
@@ -12,5 +14,6 @@ public interface FavoritosRepository extends MongoRepository<Favoritos, String>{
 	void deleteByIdUsuario(String usuario);
 
 	List<Favoritos> findByIdUsuario(String usuario);
+
 
 }

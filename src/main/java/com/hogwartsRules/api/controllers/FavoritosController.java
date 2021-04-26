@@ -1,11 +1,13 @@
 package com.hogwartsRules.api.controllers;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.data.mongodb.core.query.Criteria;
 import org.springframework.data.mongodb.core.query.Query;
+import org.springframework.data.mongodb.core.query.Update;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -45,27 +47,34 @@ public class FavoritosController {
 		favoritosRepository.save(favorito);
 	}
 
-	/*
-	 @PutMapping("/eliminarProductoFav")//Funcion para que un usuario desde el movil actualice sus datos
-		public void eliminarProductoFav(@RequestBody Favoritos fav) {
-	    	 Query query = new Query();
-	    	 query.addCriteria(Criteria.where("_id").is(fav.get_id()));
-	    	 Favoritos favorito1 = mongoTemplate.findOne(query, Favoritos.class);
-	    	 System.out.println(favorito1.getProductos());
-	    	 //usuarioRepository.save(usuario);
-	   }
-*/
 
 	 @RequestMapping(path="/todosFavoritos/{usuario}", method=RequestMethod.GET)
 	    public List<Favoritos> getFavoritos(@PathVariable String usuario){
 	        return favoritosRepository.findByIdUsuario(usuario);
 	 }
 
-	 @RequestMapping(path="/productosFavoritos/{usuario}", method=RequestMethod.GET)
-	    public List<Productos> getproductosFavoritos(@PathVariable String usuario){
-	        return productosRepository.findByIdUsuario(usuario);
-	 }
+	 @PutMapping("/actualizarFavoritos")//Funcion para que un usuario desde el movil actualice sus datos
+		public void actualizarFavoritos(@RequestBody Favoritos favs) {
+		 System.out.print(favs.get_id());
+	    	 Query query = new Query();
+	    	 query.addCriteria(Criteria.where("_id").is(favs.get_id()));
+	    	 Favoritos fav1 = mongoTemplate.findOne(query, Favoritos.class);
+	    	 fav1.setProductos(favs.getProductos());
+	    	 favoritosRepository.save(fav1);
+	   }
 
+
+
+	 @PutMapping("/eliminarProductoFav")
+		public void eliminarProductoFav(@RequestBody Favoritos fav) {
+	    	 Query query = new Query();
+	    	 query.addCriteria(Criteria.where("_id").is(fav.get_id()));
+	    	 Favoritos fav1 = mongoTemplate.findOne(query, Favoritos.class);
+	    	 Update update = new Update().pull("productos",fav.getProductos().get(0));
+
+	    	 mongoTemplate.findAndModify(query, update, Favoritos.class);
+
+	   }
 
 
 }

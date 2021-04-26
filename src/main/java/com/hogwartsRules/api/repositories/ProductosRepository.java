@@ -10,6 +10,4 @@ public interface ProductosRepository extends MongoRepository<Productos, String>{
 
 	List<Productos> findByTipo(String tipo);
 
-	List<Productos> findByIdUsuario(String usuario);
-
 }

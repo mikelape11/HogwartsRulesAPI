@@ -1,6 +1,7 @@
 package com.hogwartsRules.api.models;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
@@ -11,16 +12,16 @@ public class Favoritos {
 	@Id
 	private String _id;
 	private String idUsuario;
-	private String idProducto;
+	private List<Productos> productos;
 
 	public Favoritos(){
 	}
 
-	public Favoritos(String _id, String idUsuario, String idProducto) {
+	public Favoritos(String _id, String idUsuario, List<Productos> productos) {
 		super();
 		this._id = _id;
 		this.idUsuario = idUsuario;
-		this.idProducto = idProducto;
+		this.productos = productos;
 	}
 
 	public String get_id() {
@@ -39,12 +40,12 @@ public class Favoritos {
 		this.idUsuario = idUsuario;
 	}
 
-	public String getIdProducto() {
-		return idProducto;
+	public List<Productos> getProductos() {
+		return productos;
 	}
 
-	public void setIdProducto(String idProducto) {
-		this.idProducto = idProducto;
+	public void setProductos(List<Productos> productos) {
+		this.productos = productos;
 	}
 
 
