@@ -55,7 +55,6 @@ public class FavoritosController {
 
 	 @PutMapping("/actualizarFavoritos")//Funcion para que un usuario desde el movil actualice sus datos
 		public void actualizarFavoritos(@RequestBody Favoritos favs) {
-		 System.out.print(favs.get_id());
 	    	 Query query = new Query();
 	    	 query.addCriteria(Criteria.where("_id").is(favs.get_id()));
 	    	 Favoritos fav1 = mongoTemplate.findOne(query, Favoritos.class);

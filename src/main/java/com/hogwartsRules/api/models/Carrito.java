@@ -1,6 +1,7 @@
 package com.hogwartsRules.api.models;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
@@ -10,12 +11,12 @@ public class Carrito {
 	@Id
 	private String _id;
 	private String idUsuario;
-	private ArrayList<Productos> productos;
+	private List<Productos> productos;
 
 	public Carrito(){
 	}
 
-	public Carrito(String _id, String idUsuario, ArrayList<Productos> productos) {
+	public Carrito(String _id, String idUsuario, List<Productos> productos) {
 		super();
 		this._id = _id;
 		this.idUsuario = idUsuario;
@@ -38,11 +39,11 @@ public class Carrito {
 		this.idUsuario = idUsuario;
 	}
 
-	public ArrayList<Productos> getProductos() {
+	public List<Productos> getProductos() {
 		return productos;
 	}
 
-	public void setProductos(ArrayList<Productos> productos) {
+	public void setProductos(List<Productos> productos) {
 		this.productos = productos;
 	}
 
