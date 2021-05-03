@@ -51,7 +51,7 @@ public class CarritoController {
 	    	 query.addCriteria(Criteria.where("_id").is(carrito.get_id()));
 	    	 Carrito carrito1 = mongoTemplate.findOne(query, Carrito.class);
 	    	 carrito1.setProductos(carrito.getProductos());
-	    	 caritoRepository.save(carrito1);
+	    	 caritoRepository.save(carrito);
 	   }
 	
 	

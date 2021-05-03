@@ -9,11 +9,13 @@ import org.springframework.data.mongodb.core.query.Query;
 import org.springframework.data.mongodb.core.query.Update;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.hogwartsRules.api.models.Carrito;
 import com.hogwartsRules.api.models.Productos;
 import com.hogwartsRules.api.models.Usuario;
 import com.hogwartsRules.api.repositories.ProductosRepository;
@@ -55,6 +57,16 @@ public class ProductosController {
 		 Update update2 = new Update().set("nombre",producto.getNombre()).set("cantidad", producto.getCantidad()).set("precio", producto.getPrecio()).set("casa",producto.getPrecio()).set("tipo", producto.getTipo()).set("foto", producto.getFoto());
 		 mongoTemplate.updateMulti(query, update2,Productos.class);
 	 }
+	 
+	 @PutMapping("/actualizarProductos")
+		public void actualizarProductos(@RequestBody Productos producto) {
+	    	 Query query = new Query();
+	    	 query.addCriteria(Criteria.where("_id").is(producto.get_id()));
+	    	 Productos producto1 = mongoTemplate.findOne(query, Productos.class);
+	    	 producto1.setCantidad(producto.getCantidad());
+	    	 productosRepository.save(producto);
+	   }
+	
 	 @RequestMapping(path="/eliminarProducts", method=RequestMethod.DELETE)
 	 public void eliminarTest(@RequestBody(required=false) Productos id) {
 		 productosRepository.deleteById(id.get_id());
