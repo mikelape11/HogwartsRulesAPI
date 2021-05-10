@@ -9,13 +9,15 @@ public class Ranking {
 	@Id
 	private String _id;
 	private String usuario;
+	private String avatar;
 	private int puntos;
 	private String casaHogwarts;
 	
-	public Ranking(String _id, String usuario, int puntos, String casaHogwarts) {
+	public Ranking(String _id, String usuario, String avatar, int puntos, String casaHogwarts) {
 		super();
 		this._id = _id;
 		this.usuario = usuario;
+		this.avatar = avatar;
 		this.puntos = puntos;
 		this.casaHogwarts = casaHogwarts;
 	}
@@ -36,6 +38,14 @@ public class Ranking {
 		this.usuario = usuario;
 	}
 
+	public String getAvatar() {
+		return avatar;
+	}
+
+	public void setAvatar(String avatar) {
+		this.avatar = avatar;
+	}
+
 	public int getPuntos() {
 		return puntos;
 	}
@@ -51,6 +61,7 @@ public class Ranking {
 	public void setCasaHogwarts(String casaHogwarts) {
 		this.casaHogwarts = casaHogwarts;
 	}
+
 	
 	
 	

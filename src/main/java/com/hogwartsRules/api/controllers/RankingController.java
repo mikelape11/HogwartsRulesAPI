@@ -40,7 +40,7 @@ public class RankingController {
 	}
 
 	
-	@PostMapping("/nuevo")
+	@PostMapping("/nuevoRanking")
 	  public void insertarRanking(@RequestBody Ranking ranking) {
 		rankingRepository.save(ranking);
 	 }
