@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.hogwartsRules.api.models.Favoritos;
+import com.hogwartsRules.api.models.Productos;
 import com.hogwartsRules.api.models.Rules;
 import com.hogwartsRules.api.repositories.RulesRepository;
 
@@ -39,7 +40,12 @@ public class RulesController {
 	public void registrarRules(@RequestBody Rules rules){
 		rulesRepository.save(rules);
 	}
-	
+	 @RequestMapping(path="/editarRules", method=RequestMethod.POST)
+	 public void editarRules(@RequestBody(required=false) Rules rules){
+		 Query query = new Query(Criteria.where("_id").is(rules.get_id()));
+		 Update update2 = new Update().set("foto",rules.getFoto()).set("rule", rules.getRule());
+		 mongoTemplate.updateMulti(query, update2,Rules.class);
+	 }
 
 	 @PutMapping("/actualizarRule")//Funcion para que un usuario desde el movil actualice sus datos
 		public void actualizarRule(@RequestBody Rules rules) {
@@ -60,5 +66,9 @@ public class RulesController {
 	    	 mongoTemplate.findAndModify(query, update, Rules.class);
 
 	   }
+	 @RequestMapping(path="/eliminarRules", method=RequestMethod.DELETE)
+	 public void eliminarRules(@RequestBody(required=false) Rules id) {
+		 rulesRepository.deleteById(id.get_id());
+	 }
 	
 }

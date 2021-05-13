@@ -15,11 +15,11 @@ public class Rules {
 	private String avatar;
 	private int rol;
 	private String rule;
-	private String foto;
+	private ArrayList<Object> foto;
 	private ArrayList<Object> comentarios;
 	private ArrayList<Object> favoritos;
 	
-	public Rules(String _id, String usuario, String avatar, int rol, String rule, String foto,
+	public Rules(String _id, String usuario, String avatar, int rol, String rule, ArrayList<Object> foto,
 			ArrayList<Object> comentarios, ArrayList<Object> favoritos) {
 		super();
 		this._id = _id;
@@ -61,10 +61,10 @@ public class Rules {
 	public void setRule(String rule) {
 		this.rule = rule;
 	}
-	public String getFoto() {
+	public ArrayList<Object> getFoto() {
 		return foto;
 	}
-	public void setFoto(String foto) {
+	public void setFoto(ArrayList<Object> foto) {
 		this.foto = foto;
 	}
 	public ArrayList<Object> getComentarios() {
